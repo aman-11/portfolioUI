@@ -24,8 +24,7 @@ export default function Index({ tools }) {
 
 export async function getStaticProps() {
   const query = `*[_type == "tools"]`;
-  let tools = await client.fetch(query);
-  tools = tools;
+  const tools = await client.fetch(query);
   return {
     props: {
       tools,
