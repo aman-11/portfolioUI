@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Snow Blue";
+    src: url("/fonts/SnowBlue.otf") format("opentype");
+  }
+}
+
+@layer components {
+  .navBtn {
+    @apply focus:outline-none border-2 font-medium rounded-md text-sm px-9 
+           py-2.5 text-center mr-2 mb-2 hover:transition hover:ease-linear 
+           hover:duration-200;
+  }
+  .impText {
+    @apply font-bold underline-offset-1 underline;
+  }
+}
+/* 
+.container {
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+} */
