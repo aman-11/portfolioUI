@@ -7,7 +7,7 @@ function Header() {
 
   return (
     <div className="">
-      <div className="flex md:justify-between justify-center">
+      <div className="flex md:justify-between justify-center text-gray-800">
         <div
           className="font-snow-flake text-lg font-semibold tracking-wider cursor-pointer"
           onClick={() => router.push("/")}

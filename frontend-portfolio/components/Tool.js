@@ -5,7 +5,7 @@ import ToolsCard from "../containers/ToolsCard";
 
 function Tool() {
   const tools = useRecoilValue(toolsAtom);
-  console.log("tools", tools);
+
   return (
     <section className="mt-16">
       <div className="flex items-center">
