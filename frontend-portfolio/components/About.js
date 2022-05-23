@@ -5,7 +5,7 @@ import Tool from "./Tool";
 
 function About() {
   return (
-    <div className="mt-16">
+    <div className="mt-20">
       <div className="grid md:grid-cols-3">
         <div className="col-span-2 space-y-4 pr-10">
           <p className="text-4xl font-bold tracking-normal">

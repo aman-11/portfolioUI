@@ -1,5 +1,4 @@
 import { urlFor } from "../sanityClient";
-import Image from "next/image";
 
 function ToolsCard({ icon, title }) {
   return (
