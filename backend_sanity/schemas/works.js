@@ -28,9 +28,6 @@ export default {
       name: "imgUrl",
       title: "ImageUrl",
       type: "image",
-      options: {
-        hotspot: true,
-      },
     },
 
     {

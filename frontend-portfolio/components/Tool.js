@@ -7,7 +7,7 @@ function Tool() {
   const tools = useRecoilValue(toolsAtom);
 
   return (
-    <section className="mt-20">
+    <section className="mt-24">
       <div className="flex items-center">
         <p className="text-3xl font-bold">My ToolKit</p>
         <CogIcon className="h-8 w-8 self-center mx-2 animate-spin-slow" />

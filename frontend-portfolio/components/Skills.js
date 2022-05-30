@@ -7,9 +7,9 @@ function Skills() {
   const skills = useRecoilValue(skillsAtom);
   const experiences = useRecoilValue(expAtom);
   const workExp = useRecoilValue(workExpAtom);
-  console.log(workExp);
+  console.log("skills", skills);
   return (
-    <div className="mt-20">
+    <div className="mt-24">
       <div className="flex items-center">
         <div className="text-3xl font-bold">
           <p>Skills &</p>
@@ -41,9 +41,9 @@ function Skills() {
           </div>
 
           {/* Quote */}
-          <div class="pl-7 py-9">
-            <div class="text-gray-300 font-serif text-9xl">“</div>
-            <blockquote class="text-gray-900 font-serif text-xl italic -mt-12 pl-6">
+          <div className="pl-7 py-9">
+            <div className="text-gray-300 font-serif text-9xl">“</div>
+            <blockquote className="text-gray-900 font-serif text-xl italic -mt-12 pl-6">
               You just need to have patience and{" "}
               <span className="font-semibold">Do</span>
               <span className="line-through">n't</span>
@@ -51,13 +51,13 @@ function Skills() {
               <span className="line-through">Qu</span>
               <span className="font-semibold">it</span>!
             </blockquote>
-            <div class="mt-4 text-gray-600 pl-6">- Someone</div>
+            <div className="mt-4 text-gray-600 pl-6">- Someone</div>
           </div>
         </section>
 
         {/* right column for the experiences */}
         {/* 1. progess bar expeirences */}
-        <section className="col-span-2 space-y-3 px-4">
+        <section className="col-span-2 space-y-3 mx-4">
           {experiences?.map((exp, index) => (
             <div key={index} className="space-y-1">
               <span className="text-gray-800 font-semibold text-base  ">
@@ -82,7 +82,7 @@ function Skills() {
                 <span className="text-xl font-bold">{role}</span>
                 <div className="flex flex-col font-semibold">
                   <span className="text-base text-gray-700">{company}</span>
-                  <span className="text-gray-700 text-xs">{date}</span>
+                  <span className="text-gray-700 text-xs italic">{date}</span>
                 </div>
                 <p className="text-sm font-normal text-gray-500 ">{desc}</p>
               </div>

@@ -19,3 +19,8 @@ export const workExpAtom = atom({
   key: "workExpAtom",
   default: [],
 });
+
+export const ProjectAtom = atom({
+  key: "ProjectAtom",
+  default: [],
+});

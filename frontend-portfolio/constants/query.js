@@ -3,4 +3,5 @@ export const sanityQuery = {
   skillsQuery: `*[_type == "skills"]`,
   expQuery: `*[_type == "experiences"] | order(value desc)`,
   workExpQuery: `*[_type == "workExperience"] | order(order)`,
+  projects: `*[_type == "works"]`,
 };

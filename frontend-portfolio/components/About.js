@@ -1,11 +1,10 @@
 import profileImg from "../assets/profile.png";
 import Image from "next/image";
 import Highlighter from "./Highlighter";
-import Tool from "./Tool";
 
 function About() {
   return (
-    <div className="mt-20">
+    <div className="mt-24">
       <div className="grid md:grid-cols-3">
         <div className="col-span-2 space-y-4 pr-10">
           <p className="text-4xl font-bold tracking-normal">
