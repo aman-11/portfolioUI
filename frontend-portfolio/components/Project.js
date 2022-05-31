@@ -1,21 +1,24 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import { CubeTransparentIcon } from "@heroicons/react/solid";
-import { tabAtom } from "../atoms/atomTabState";
 import FilterType from "./FilterType";
 import { ProjectAtom } from "../atoms/atomState";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import { urlFor } from "../sanityClient";
-import { TagIcon } from "@heroicons/react/solid";
+import { TagIcon, CodeIcon } from "@heroicons/react/solid";
 
 function Project() {
-  //   const [tabSelected, _] = useRecoilState(tabAtom);
   const projects = useRecoilValue(ProjectAtom);
+  const [filteredProjectList, setFilteredProjectList] = useState([]);
 
-  console.log("projects", projects);
+  const filterProject = (tabName = "All") => {
+    console.log("tabSelected", tabName);
+    if (tabName === "All") return setFilteredProjectList(projects);
 
-  //   useEffect(() => {
-  //     console.log("tabSelected", tabSelected);
-  //   }, [tabSelected]);
+    let transformedProj = projects.filter(({ tags }) => {
+      if (tags.includes(tabName)) return true;
+    });
+    return setFilteredProjectList(transformedProj);
+  };
 
   return (
     <div className="mt-24">
@@ -28,40 +31,65 @@ function Project() {
       </p>
 
       <div className="mt-9">
-        <FilterType />
+        <FilterType callbackFilterProject={filterProject} />
       </div>
 
       <section className="grid grid-cols-2 mt-9 gap-10">
-        {projects?.map(({ _id, title, imgUrl, description, tags }) => (
-          <div
-            key={_id}
-            className="bg-gray-100 p-3 space-y-4 hover:scale-105 transition transform duration-200 ease-out shadow-md rounded-sm"
-          >
-            <span className="text-lg font-semibold">{title}</span>
-            <div className="bg-white flex items-center justify-center w-full h-52">
-              {imgUrl ? (
-                <img
-                  className="cursor-pointer object-contain"
-                  src={urlFor(imgUrl).width(100).quality(100).url()}
-                />
-              ) : (
-                <span className="cursor-pointer font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
-                  {title}
-                </span>
-              )}
-            </div>
-            <p className="text-base font-normal text-black line-clamp-2 p-2">
-              {description}
-            </p>
+        {filteredProjectList?.map(
+          ({
+            _id,
+            title,
+            imgUrl,
+            description,
+            tags,
+            codeLink,
+            projectLink,
+          }) => (
+            <div
+              key={_id}
+              className="bg-gray-100 p-3 flex flex-col space-y-4 shadow-md rounded-sm"
+            >
+              <span className="text-lg font-semibold">{title}</span>
+              <a href={projectLink} target="_blank">
+                <div className="bg-white flex items-center justify-center w-full h-52">
+                  {imgUrl ? (
+                    <img
+                      className="cursor-pointer object-contain hoverScale"
+                      src={urlFor(imgUrl).width(100).quality(100).url()}
+                    />
+                  ) : (
+                    <span className="cursor-pointer font-extrabold hoverScale text-transparent text-4xl bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+                      {title}
+                    </span>
+                  )}
+                </div>
+              </a>
+              <p className="text-base font-normal text-black line-clamp-2 p-2">
+                {description}
+              </p>
 
-            <div className="flex space-x-3 flex-wrap p-2">
-              <TagIcon className="w-6 text-gray-500 font-extrabold" />
-              {tags.map((tag) => (
-                <span className="text-gray-500 text-base">{tag}</span>
-              ))}
+              <div className="flex space-x-3 flex-wrap p-2">
+                <TagIcon className="w-6 text-gray-500 font-extrabold" />
+                {tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-gray-500 text-base hover:underline hover:underline-offset-2 hover:font-semibold cursor-pointer"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <a href={codeLink} target="_blank" className="outline-none ">
+                <div className="bg-white shadow-sm flex justify-center space-x-3 px-2.5 py-2 w-24 rounded-md cursor-pointer hover:bg-black hover:text-white duration-150 transition ease-out ">
+                  <CodeIcon className="w-4" />
+                  <span className="text-sm test-gray-500 font-semibold">
+                    Code
+                  </span>
+                </div>
+              </a>
             </div>
-          </div>
-        ))}
+          )
+        )}
       </section>
     </div>
   );

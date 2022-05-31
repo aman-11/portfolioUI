@@ -1,21 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Tab } from "@headlessui/react";
-import { useRecoilState } from "recoil";
-import { tabAtom } from "../atoms/atomTabState";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function FilterType() {
+function FilterType({ callbackFilterProject }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [tabs] = useState(["All", "ReactJs", "GraphQL", "Blockchain"]);
-  const [_, setSelectedTab] = useRecoilState(tabAtom);
+  const [tabs] = useState(["All", "ReactJs", "GraphQL", "Web3Js"]);
 
   const handleTabChange = (index) => {
     setSelectedIndex(index);
-    setSelectedTab(tabs[selectedIndex]);
   };
+
+  useEffect(() => {
+    callbackFilterProject(tabs[selectedIndex]);
+  }, [selectedIndex]);
 
   return (
     <Tab.Group selectedIndex={selectedIndex} onChange={handleTabChange}>
