@@ -11,6 +11,7 @@ import {
   ProjectAtom,
 } from "../atoms/atomState";
 import { sanityQuery } from "../constants/query";
+import { motion } from "framer-motion";
 
 //-------components-------------
 import About from "../components/About";
@@ -19,6 +20,7 @@ import Tool from "../components/Tool";
 import Head from "next/head";
 import Skills from "../components/Skills";
 import Project from "../components/Project";
+import Contact from "../components/Contact";
 
 export default function Index({
   tools,
@@ -48,30 +50,50 @@ export default function Index({
       <Head>Aayush</Head>
       <main className="max-w-5xl mx-5 lg:mx-auto sm:mt-4 md:mt-6">
         <Header />
-        <About />
-        <Tool />
-        <Skills />
-        <div className="mt-12 flex justify-center space-x-2">
-          <div className="flex-grow border-t border-gray-400"></div>
-          <div className="flex -mt-3 items-center">
-            <p className="text-base font-normal text-gray-500 tracking-wider">
-              Hello again! Thanks for scrolling this far!!
-            </p>
-            {liked ? (
-              <HeartIcon
-                className="btn !text-red-600"
-                onClick={() => setLiked(false)}
-              />
-            ) : (
-              <HeartIconOUtlined
-                className="btn animate-pulse transition duration-200 ease-in-out"
-                onClick={() => setLiked(true)}
-              />
-            )}
+        <motion.div
+          className="mt-24"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {
+              scale: 0.8,
+              opacity: 0,
+            },
+            visible: {
+              scale: 1,
+              opacity: 1,
+              transition: {
+                delay: 0.4,
+              },
+            },
+          }}
+        >
+          <About />
+          <Tool />
+          <Skills />
+          <div className="mt-12 flex justify-center space-x-2">
+            <div className="flex-grow border-t border-gray-400"></div>
+            <div className="flex -mt-3 items-center">
+              <p className="text-base font-normal text-gray-500 tracking-wider">
+                Hello again! Thanks for scrolling this far!!
+              </p>
+              {liked ? (
+                <HeartIcon
+                  className="btn !text-red-600"
+                  onClick={() => setLiked(false)}
+                />
+              ) : (
+                <HeartIconOUtlined
+                  className="btn animate-pulse transition duration-200 ease-in-out"
+                  onClick={() => setLiked(true)}
+                />
+              )}
+            </div>
+            <div className="flex-grow border-t border-gray-400"></div>
           </div>
-          <div className="flex-grow border-t border-gray-400"></div>
-        </div>
-        <Project />
+          <Project />
+          <Contact />
+        </motion.div>
       </main>
     </div>
   );

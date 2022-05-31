@@ -5,6 +5,7 @@ import { ProjectAtom } from "../atoms/atomState";
 import { useRecoilValue } from "recoil";
 import { urlFor } from "../sanityClient";
 import { TagIcon, CodeIcon } from "@heroicons/react/solid";
+import { motion } from "framer-motion";
 
 function Project() {
   const projects = useRecoilValue(ProjectAtom);
@@ -34,7 +35,7 @@ function Project() {
         <FilterType callbackFilterProject={filterProject} />
       </div>
 
-      <section className="grid grid-cols-2 mt-9 gap-10">
+      <div className="grid grid-cols-2 mt-9 gap-10">
         {filteredProjectList?.map(
           ({
             _id,
@@ -45,9 +46,24 @@ function Project() {
             codeLink,
             projectLink,
           }) => (
-            <div
+            <motion.div
               key={_id}
               className="bg-gray-100 p-3 flex flex-col space-y-4 shadow-md rounded-sm"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: {
+                  scale: 0.8,
+                  opacity: 0,
+                },
+                visible: {
+                  scale: 1,
+                  opacity: 1,
+                  transition: {
+                    delay: 0.4,
+                  },
+                },
+              }}
             >
               <span className="text-lg font-semibold">{title}</span>
               <a href={projectLink} target="_blank">
@@ -87,10 +103,10 @@ function Project() {
                   </span>
                 </div>
               </a>
-            </div>
+            </motion.div>
           )
         )}
-      </section>
+      </div>
     </div>
   );
 }

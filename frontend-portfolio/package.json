@@ -14,6 +14,7 @@
     "@sanity/client": "^3.3.0",
     "@sanity/image-url": "^1.0.1",
     "@tailwindcss/line-clamp": "^0.4.0",
+    "framer-motion": "^6.3.6",
     "heroicons": "^1.0.6",
     "next": "12.1.6",
     "react": "18.1.0",
