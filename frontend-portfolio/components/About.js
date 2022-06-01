@@ -92,18 +92,22 @@ function About() {
             </p>
           </div>
           <div className="pt-1">
-            <button
-              type="button"
-              className="text-white hover:text-black hover:bg-white bg-black navBtn"
-            >
-              View Linkedin
-            </button>
-            <button
-              type="button"
-              className="text-gray-500 hover:text-white hover:bg-black navBtn"
-            >
-              View Github
-            </button>
+            <a href="https://www.linkedin.com/in/aayushaman/" target="_blank">
+              <button
+                type="button"
+                className="text-white hover:text-black hover:bg-white bg-black navBtn"
+              >
+                View Linkedin
+              </button>
+            </a>
+            <a href="https://github.com/aman-11" target="_blank">
+              <button
+                type="button"
+                className="text-gray-500 hover:text-white hover:bg-black navBtn"
+              >
+                View Github
+              </button>
+            </a>
             <br />
             <span className="font-semibold hover:text-gray-500 cursor-pointer underline underline-offset-2">
               <a href="#contact">Let’s make something special.</a>
