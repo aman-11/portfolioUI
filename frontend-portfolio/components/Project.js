@@ -22,7 +22,7 @@ function Project() {
   };
 
   return (
-    <div className="mt-24">
+    <div className="mt-24" id="projects">
       <div className="flex space-x-2">
         <p className="text-3xl font-bold">Projects</p>
         <CubeTransparentIcon className="h-8 w-8 self-center mx-2" />

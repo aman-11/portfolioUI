@@ -3,7 +3,7 @@ import { HeartIcon } from "@heroicons/react/solid";
 
 function Contact() {
   return (
-    <div className="mt-24">
+    <div className="mt-24" id="contact">
       <div className="flex items-center">
         <p className="text-3xl font-bold">Contact Me</p>
         <BriefcaseIcon className="h-8 w-8 self-center mx-2 animate-bounce" />

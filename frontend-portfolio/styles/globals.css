@@ -37,6 +37,11 @@
     @apply font-bold text-lg tracking-normal text-transparent bg-clip-text 
           bg-gradient-to-r from-rose-700 to-yellow-600;
   }
+
+  .hoverNavIcon {
+    @apply hover:scale-125 cursor-pointer transition transform duration-200 ease-out
+    hover:text-gray-500;
+  }
 }
 /* 
 .container {

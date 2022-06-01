@@ -9,7 +9,7 @@ function Skills() {
   const workExp = useRecoilValue(workExpAtom);
   console.log("skills", skills);
   return (
-    <div className="mt-24">
+    <div className="mt-24" id="my skills">
       <div className="flex items-center">
         <div className="text-3xl font-bold">
           <p>Skills &</p>
