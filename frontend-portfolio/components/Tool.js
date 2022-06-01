@@ -9,10 +9,10 @@ function Tool() {
   return (
     <section className="mt-24">
       <div className="flex items-center">
-        <p className="text-3xl font-bold">My ToolKit</p>
+        <p className="md:text-3xl text-xl font-bold">My ToolKit</p>
         <CogIcon className="h-8 w-8 self-center mx-2 animate-spin-slow" />
       </div>
-      <p className="text-gray-500 text-lg mt-2">
+      <p className="text-gray-500 md:text-lg text-base mt-2">
         Some of the tools I love to work with:
       </p>
 

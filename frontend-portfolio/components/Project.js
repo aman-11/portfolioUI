@@ -24,10 +24,10 @@ function Project() {
   return (
     <div className="mt-24" id="projects">
       <div className="flex space-x-2">
-        <p className="text-3xl font-bold">Projects</p>
+        <p className="md:text-3xl text-xl font-bold">Projects</p>
         <CubeTransparentIcon className="h-8 w-8 self-center mx-2" />
       </div>
-      <p className="text-gray-500 text-lg mt-2">
+      <p className="text-gray-500 md:text-lg text-base mt-2">
         Some of the side projects I'm currently working on:
       </p>
 
@@ -35,7 +35,7 @@ function Project() {
         <FilterType callbackFilterProject={filterProject} />
       </div>
 
-      <div className="grid grid-cols-2 mt-9 gap-10">
+      <div className="md:grid md:grid-cols-2 mt-9 md:gap-10 px-12 space-y-5 md:px-0 md:space-y-0">
         {filteredProjectList?.map(
           ({
             _id,

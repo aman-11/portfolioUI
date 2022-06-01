@@ -11,16 +11,18 @@ function Skills() {
   return (
     <div className="mt-24" id="my skills">
       <div className="flex items-center">
-        <div className="text-3xl font-bold">
+        <div className="md:text-3xl text-xl font-bold">
           <p>Skills &</p>
           <p>Experiences</p>
         </div>
         <PencilAltIcon className="h-8 w-8 self-center mx-3 animate-pulse" />
       </div>
-      <p className="text-gray-500 text-lg mt-2">The mygical power I possess:</p>
+      <p className="text-gray-500 md:text-lg text-base mt-2">
+        The mygical power I possess:
+      </p>
 
       {/* content */}
-      <main className="mt-9 grid grid-cols-4">
+      <main className="mt-9 md:grid md:grid-cols-4">
         <section className="col-span-2">
           <div className="grid grid-cols-2 gap-y-10 gap-x-28 px-16 py-12 bg-gray-100  rounded-sm">
             {skills?.map(({ name, desc, icon }, index) => (

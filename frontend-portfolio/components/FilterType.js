@@ -26,7 +26,7 @@ function FilterType({ callbackFilterProject }) {
             className={({ selected }) =>
               classNames(
                 "focus:outline-none p-2",
-                selected ? "font-bold text-[1.6rem]" : "filterType"
+                selected ? "md:font-bold font-semibold  md:text-[1.2rem] text-[1.6rem]" : "filterType"
               )
             }
           >

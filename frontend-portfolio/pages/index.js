@@ -51,7 +51,6 @@ export default function Index({
       <main className="max-w-5xl mx-5 lg:mx-auto sm:mt-4 md:mt-6">
         <Header />
         <motion.div
-          className="mt-24"
           initial="hidden"
           animate="visible"
           variants={{

@@ -4,10 +4,10 @@ import Highlighter from "./Highlighter";
 
 function About() {
   return (
-    <div id="about" className="mt-24">
-      <div className="grid md:grid-cols-3">
-        <div className="col-span-2 space-y-4 pr-10">
-          <p className="text-4xl font-bold tracking-normal">
+    <div id="about" className="md:mt-16 mt-9">
+      <div className="md:grid md:grid-cols-3 flex flex-col-reverse items-center">
+        <div className="col-span-2 space-y-4 md:pr-10 mt-6">
+          <p className="md:text-4xl text-2xl font-bold tracking-normal">
             Hello! I'm Aayush, a{" "}
             <Highlighter
               text="developer"
@@ -105,13 +105,13 @@ function About() {
               View Github
             </button>
             <br />
-            <span className="font-semibold hover:text-gray-500 cursor-pointer">
-              Let’s make something special.
+            <span className="font-semibold hover:text-gray-500 cursor-pointer underline underline-offset-2">
+              <a href="#contact">Let’s make something special.</a>
             </span>
           </div>
         </div>
         <div className="col-span-1">
-          <div className="p-2 drop-shadow-[0_21px_21px_rgba(0,0,0,0.20)] transform skew-x-[0deg] skew-y-[1deg]">
+          <div className="md:p-2 w-64 md:w-auto drop-shadow-[0_21px_21px_rgba(0,0,0,0.20)] transform skew-x-[0deg] skew-y-[1deg]">
             <Image
               className="rounded-xl"
               alt="Vercel logo"

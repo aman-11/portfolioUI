@@ -5,10 +5,10 @@ function Contact() {
   return (
     <div className="mt-24" id="contact">
       <div className="flex items-center">
-        <p className="text-3xl font-bold">Contact Me</p>
+        <p className="md:text-3xl text-xl font-bold">Contact Me</p>
         <BriefcaseIcon className="h-8 w-8 self-center mx-2 animate-bounce" />
       </div>
-      <p className="text-gray-500 text-lg mt-2">
+      <p className="text-gray-500 md:text-lg text-base mt-2">
         Do you have a job opportunity or idea you'd like to discuss? Feel free
         to reach me at{" "}
         <a
