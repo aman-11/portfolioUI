@@ -1,4 +1,4 @@
-Name: Starter Workflow Demo
+name: Starter Workflow Demo
 on:
   pull_request_target:
     types:
