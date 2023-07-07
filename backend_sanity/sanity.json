@@ -7,6 +7,7 @@
     "projectId": "zahbe4dj",
     "dataset": "production"
   },
+  
   "plugins": [
     "@sanity/base",
     "@sanity/default-layout",
