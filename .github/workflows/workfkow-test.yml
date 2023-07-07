@@ -8,6 +8,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: demo workflow job
-        run: echo This is a demo start workflow
+      - name: Invoke deployment hook
+        run: >
+          JIRA_ISSUE=$(echo github.event.pull_request.head.ref | cut -d'-' -f1 -f2)
+          PR_DRAFT=$(echo github.event.pull_request.draft)
+          echo $PR_DRAFT
+          echo $JIRA_ISSUE
+          WEBHOOK_URL="https://automation.atlassian.com/pro/hooks/6f0bbeb2cf0efd2f91e74e7150f11ad71ea61b92?issue=${JIRA_ISSUE}draft=${PR_DRAFT}"
+          curl -X POST "$WEBHOOK_URL"
