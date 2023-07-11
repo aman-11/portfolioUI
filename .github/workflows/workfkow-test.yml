@@ -10,8 +10,7 @@ jobs:
     steps:
       - name: Invoke deployment hook
         run: |
-          echo github.event.pull_request.head.ref | cut -d'-' -f1 -f2
-          echo github.event.pull_request.draft
+          echo $(echo "${{ github.event.pull_request.head.ref }}" | cut -d'-' -f1-2)
         #JIRA_ISSUE=$(echo github.event.pull_request.head.ref | cut -d'-' -f1 -f2)
         #PR_DRAFT=$(echo github.event.pull_request.draft)
         #run: |
