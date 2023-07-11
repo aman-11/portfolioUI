@@ -13,5 +13,7 @@ jobs:
           JIRA_ISSUE=$(echo $(echo "${{ github.event.pull_request.head.ref }}" | cut -d'-' -f1-2))
           PR_DRAFT=$(echo github.event.pull_request.draft)
           echo "$JIRA_ISSUE"
-          #WEBHOOK_URL="https://automation.atlassian.com/pro/hooks/6f0bbeb2cf0efd2f91e74e7150f11ad71ea61b92?issue=${JIRA_ISSUE}&draft=${PR_DRAFT}"
-          #curl -X POST "$WEBHOOK_URL"
+          echo "$PR_DRAFT"
+          WEBHOOK_URL="https://automation.atlassian.com/pro/hooks/6f0bbeb2cf0efd2f91e74e7150f11ad71ea61b92?issue=${JIRA_ISSUE}&draft=${PR_DRAFT}"
+          echo "$WEBHOOK_URL"
+          curl -X POST "$WEBHOOK_URL"
