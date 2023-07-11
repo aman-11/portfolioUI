@@ -14,7 +14,6 @@ jobs:
           PR_DRAFT=$(echo ${{github.event.pull_request.draft}})
           echo "$JIRA_ISSUE"
           echo "$PR_DRAFT"
-          WEBHOOK_URL="https://automation.atlassian.com/pro/hooks/6f0bbeb2cf0efd2f91e74e7150f11ad71ea61b92"
-          --data '{"issues":["$JIRA_ISSUE"], "data": {"draft":"$PR_DRAFT"}}'
-          curl -X POST "$WEBHOOK_URL"
-          
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{"issues":["$JIRA_ISSUE"], "data": {"draft":"$PR_DRAFT"}}' \
+          https://automation.atlassian.com/pro/hooks/6f0bbeb2cf0efd2f91e74e7150f11ad71ea61b92
